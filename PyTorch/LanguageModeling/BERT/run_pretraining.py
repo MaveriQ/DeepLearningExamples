@@ -52,13 +52,15 @@ import amp_C
 import apex_C
 from apex.amp import _amp_state
 
+from torch.utils.tensorboard import SummaryWriter
+
 from concurrent.futures import ProcessPoolExecutor
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
-
+writer = SummaryWriter()
 
 def create_pretraining_dataset(input_file, max_pred_length, shared_list, args):
 
@@ -513,6 +515,11 @@ def main():
                         loss.backward()
                     average_loss += loss.item()
 
+                    if is_main_process():
+                        writer.add_scalar('Loss',loss.item() * args.gradient_accumulation_steps / divisor,step)
+                        writer.add_scalar('Avg_Loss',average_loss/(args.log_freq * divisor),step)
+                        writer.add_scalar('Learning_Rate',optimizer.param_groups[0]['lr'],step)
+
                     if training_steps % args.gradient_accumulation_steps == 0:
                         lr_scheduler.step()  # learning rate warmup
                         global_step = take_optimizer_step(args, optimizer, model, overflow_buf, global_step)
@@ -554,7 +561,7 @@ def main():
                                             'files': [f_id] + files}, output_save_file)
 
                                 most_recent_ckpts_paths.append(output_save_file)
-                                if len(most_recent_ckpts_paths) > 3:
+                                if len(most_recent_ckpts_paths) > 10:
                                     ckpt_to_be_removed = most_recent_ckpts_paths.pop(0)
                                     os.remove(ckpt_to_be_removed)
 
