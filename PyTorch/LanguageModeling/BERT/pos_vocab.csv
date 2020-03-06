@@ -1,0 +1,54 @@
+,TAG,POS,MORPHOLOGY,DESCRIPTION
+0,$,SYM,,"symbol, currency"
+1,``,PUNCT,PunctType=quot PunctSide=ini,opening quotation mark
+2,,PUNCT,PunctType=quot PunctSide=fin,closing quotation mark
+3,",",PUNCT,PunctType=comm,"punctuation mark, comma"
+4,-LRB-,PUNCT,PunctType=brck PunctSide=ini,left round bracket
+5,-RRB-,PUNCT,PunctType=brck PunctSide=fin,right round bracket
+6,.,PUNCT,PunctType=peri,"punctuation mark, sentence closer"
+7,:,PUNCT,,"punctuation mark, colon or ellipsis"
+8,ADD,X,,email
+9,AFX,ADJ,Hyph=yes,affix
+10,CC,CCONJ,ConjType=comp,"conjunction, coordinating"
+11,CD,NUM,NumType=card,cardinal number
+12,DT,DET,,determiner
+13,EX,PRON,AdvType=ex,existential there
+14,FW,X,Foreign=yes,foreign word
+15,GW,X,,additional word in multi-word expression
+16,HYPH,PUNCT,PunctType=dash,"punctuation mark, hyphen"
+17,IN,ADP,,"conjunction, subordinating or preposition"
+18,JJ,ADJ,Degree=pos,adjective
+19,JJR,ADJ,Degree=comp,"adjective, comparative"
+20,JJS,ADJ,Degree=sup,"adjective, superlative"
+21,LS,X,NumType=ord,list item marker
+22,MD,VERB,VerbType=mod,"verb, modal auxiliary"
+23,NFP,PUNCT,,superfluous punctuation
+24,NIL,X,,missing tag
+25,NN,NOUN,Number=sing,"noun, singular or mass"
+26,NNP,PROPN,NounType=prop Number=sing,"noun, proper singular"
+27,NNPS,PROPN,NounType=prop Number=plur,"noun, proper plural"
+28,NNS,NOUN,Number=plur,"noun, plural"
+29,PDT,DET,,predeterminer
+30,POS,PART,Poss=yes,possessive ending
+31,PRP,PRON,PronType=prs,"pronoun, personal"
+32,PRP$,DET,PronType=prs Poss=yes,"pronoun, possessive"
+33,RB,ADV,Degree=pos,adverb
+34,RBR,ADV,Degree=comp,"adverb, comparative"
+35,RBS,ADV,Degree=sup,"adverb, superlative"
+36,RP,ADP,,"adverb, particle"
+37,SP,SPACE,,space
+38,SYM,SYM,,symbol
+39,TO,PART,PartType=inf VerbForm=inf,infinitival “to”
+40,UH,INTJ,,interjection
+41,VB,VERB,VerbForm=inf,"verb, base form"
+42,VBD,VERB,VerbForm=fin Tense=past,"verb, past tense"
+43,VBG,VERB,VerbForm=part Tense=pres Aspect=prog,"verb, gerund or present participle"
+44,VBN,VERB,VerbForm=part Tense=past Aspect=perf,"verb, past participle"
+45,VBP,VERB,VerbForm=fin Tense=pres,"verb, non-3rd person singular present"
+46,VBZ,VERB,VerbForm=fin Tense=pres Number=sing Person=three,"verb, 3rd person singular present"
+47,WDT,DET,,wh-determiner
+48,WP,PRON,,"wh-pronoun, personal"
+49,WP$,DET,Poss=yes,"wh-pronoun, possessive"
+50,WRB,ADV,,wh-adverb
+51,XX,X,,unknown
+52,_SP,SPACE,,
