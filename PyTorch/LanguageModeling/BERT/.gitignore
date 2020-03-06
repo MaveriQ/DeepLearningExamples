@@ -13,6 +13,9 @@ data/*/*/
 data/*/*.zip
 checkpoints/
 results/
+data/formatted_one_article_per_line/
+data/swag/
+runs/
 
 # Distribution / packaging
 .Python

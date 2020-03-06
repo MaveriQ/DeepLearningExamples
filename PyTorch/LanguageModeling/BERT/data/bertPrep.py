@@ -293,7 +293,7 @@ if __name__ == "__main__":
         '--n_processes',
         type=int,
         help='Specify the max number of processes to allow at one time',
-        default=16
+        default=80
     )
 
     parser.add_argument(

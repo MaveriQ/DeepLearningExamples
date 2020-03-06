@@ -14,17 +14,17 @@
 # limitations under the License.
 
 echo "Container nvidia build = " $NVIDIA_BUILD_ID
-train_batch_size=${1:-8192}
+train_batch_size=${1:-4}
 learning_rate=${2:-"6e-3"}
 precision=${3:-"fp16"}
-num_gpus=${4:-8}
+num_gpus=${4:-1}
 warmup_proportion=${5:-"0.2843"}
-train_steps=${6:-7038}
+train_steps=${6:-1}
 save_checkpoint_steps=${7:-200}
 resume_training=${8:-"false"}
 create_logfile=${9:-"true"}
 accumulate_gradients=${10:-"true"}
-gradient_accumulation_steps=${11:-128}
+gradient_accumulation_steps=${11:-4}
 seed=${12:-$RANDOM}
 job_name=${13:-"bert_lamb_pretraining"}
 allreduce_post_accumulation=${14:-"true"}
@@ -34,7 +34,7 @@ learning_rate_phase2=${18:-"4e-3"}
 warmup_proportion_phase2=${19:-"0.128"}
 train_steps_phase2=${20:-1563}
 gradient_accumulation_steps_phase2=${21:-512}
-DATASET=hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/books_wiki_en_corpus # change this for other datasets
+DATASET=hdf5_lower_case_1_seq_len_512_max_pred_80_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/bookscorpus # change this for other datasets
 DATA_DIR_PHASE1=${22:-$BERT_PREP_WORKING_DIR/${DATASET}/}
 BERT_CONFIG=bert_config.json
 CODEDIR=${24:-"/workspace/bert"}
